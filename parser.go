@@ -98,7 +98,9 @@ func (p *Parser) emitTriple(subj, pred, obj Term) {
 }
 
 func (p *Parser) blankNode(label string) *BlankNode {
-	if node, present := p.bNodeLabels[label]; present {
+	if label == "" {
+		return p.newBlankNode("")
+	} else if node, present := p.bNodeLabels[label]; present {
 		return node
 	}
 	newNode := p.newBlankNode(label)
@@ -112,7 +114,7 @@ func (p *Parser) newBlankNode(labelInput string) *BlankNode {
 	if labelInput == "" {
 		label = fmt.Sprintf("a%d", id)
 	} else {
-		label = labelInput[2:]
+		label = labelInput
 	}
 
 	b := &BlankNode{
