@@ -110,9 +110,9 @@ func (p *Parser) newBlankNode(labelInput string) *BlankNode {
 	id := p.lastBlankNode + 1
 	var label string
 	if labelInput == "" {
-		label = fmt.Sprintf("_:a%d", id)
+		label = fmt.Sprintf("a%d", id)
 	} else {
-		label = labelInput
+		label = labelInput[2:]
 	}
 
 	b := &BlankNode{

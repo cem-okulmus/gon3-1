@@ -71,7 +71,7 @@ func NewBlankNode(label string) *BlankNode {
 }
 
 func (b *BlankNode) String() string {
-	return fmt.Sprintf("%s", b.Label)
+	return fmt.Sprintf("_:%s", b.Label)
 }
 
 func (b *BlankNode) Equals(other Term) bool {
