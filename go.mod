@@ -1,4 +1,4 @@
-module github.com/deiu/gon3
+module github.com/cem-okulmus/gon3-1
 
 go 1.19
 

@@ -71,7 +71,7 @@ func NewBlankNode(label string) *BlankNode {
 }
 
 func (b *BlankNode) String() string {
-	return fmt.Sprintf("_:%s", b.Label)
+	return fmt.Sprintf("%s", b.Label)
 }
 
 func (b *BlankNode) Equals(other Term) bool {
@@ -158,7 +158,7 @@ func lexicalForm(s string) string {
 }
 
 func unescapeEChar(s string) string {
-	var replacements = []struct {
+	replacements := []struct {
 		old string
 		new string
 	}{
