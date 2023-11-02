@@ -140,7 +140,14 @@ func (p *Parser) resolvePName(pname string) (*IRI, error) {
 
 func (p *Parser) resolveIRI(iri string) (*IRI, error) {
 	rel := iriRefToURL(iri)
-	url, err := joinURL(p.baseURI.url, rel)
+	var url string
+	var err error
+	if strings.Contains(rel, ":") {
+		url, err = joinURL("", rel)
+	} else {
+		url, err = joinURL(p.baseURI.url, rel)
+	}
+
 	return &IRI{url}, err
 }
 
